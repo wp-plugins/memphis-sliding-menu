@@ -8,11 +8,14 @@ Requires at least: 3.5
 Tested up to: 3.8.1
 Stable tag: 1.0.1
 
-A sliding menu for Wordpress
+A sliding menu widget for all your  WordPress pages. 
 
 == Description ==
 
-A sliding menu for WordPress
+A sliding menu widget for all your  WordPress pages.  This plugin allows you to:
+
+* Choose which pages you want to display
+* Place the widget on any sidebar as many times as needed.
 
 == Installation ==
 
@@ -25,9 +28,20 @@ Use the browse button to select the plugin zip file that was downloaded, then cl
 Once uploaded the configuration menu is located in either the "Memphis" menu with the heading of "Documents" in the Dashboard or in the "Memphis Docs" menu. 
 
 == Screenshots ==
-
+1. screenshot-1.png 
+2. screenshot-2.png
+3. screenshot-3.png
 
 == Changelog ==
+= 1.0.1 =
+Initial application release.
 
+== Upgrade Notice ==
+
+= 1.0.1 =
+* Initial Release of Memphis Documents Library
+
+== Frequently Asked Questions ==
+Currently there is no FAQ written for Memphis Sliding Menu.
 
 
