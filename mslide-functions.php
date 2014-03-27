@@ -68,6 +68,7 @@ class SlidingMenuWidget extends WP_Widget {
 	function form( $instance ) {
 		// Output admin widget options form
 		if(isset($_POST['mslide-post-id'])) update_option('mslide-exclude-list',$_POST['mslide-post-id']);
+		else update_option('mslide-exclude-list',array());
 		$include = INCLUDE_LIST;
 		$list_array = array('private','publish','draft');
 		$args =  array(
