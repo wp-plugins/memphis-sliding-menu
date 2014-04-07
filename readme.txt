@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.5
 Tested up to: 3.8.1
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 
 A sliding menu widget for all your  WordPress pages. 
 
@@ -33,6 +33,11 @@ Once uploaded the configuration menu is located in either the "Memphis" menu wit
 3. screenshot-3.png
 
 == Changelog ==
+= 1.0.4 =
+* added pending pages to the list of pages in the admin widget
+* if a page is not published it will show its status in the admin widget.
+* Another fixed with issue enabling/disabling all pages.
+* menu is sorted by WordPress menu order
 = 1.0.3 =
 * Fixed issue with enabling all pages.
 = 1.0.2 =
