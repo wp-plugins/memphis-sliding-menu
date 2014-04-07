@@ -5,9 +5,9 @@ Plugin Name: Memphis Sliding Menu
 Plugin URI: http://
 Description: A sliding menu for WordPress
 Author: Ian Howatson
-Version: 1.0.3
+Version: 1.0.4
 Author URI: http://www.kingofnothing.net/
-Date: 3/27/2013
+Date: 4/07/2013
 
 Copyright 2013 Ian Howatson  (email : ian.howatson@kingofnothing.net)
 
