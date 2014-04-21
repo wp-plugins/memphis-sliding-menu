@@ -18,7 +18,7 @@ function mslide_list_children($att) {
 	?>
 	<table class="mslide-table">
 		<tr>
-			<th>Page Title</th>
+			<th><?php echo $post->post_title; ?></th>
 			<th></th>
 		</tr>
 		<?php
