@@ -67,10 +67,10 @@ class SlidingMenuWidget extends WP_Widget {
 
 	function form( $instance ) {
 		// Output admin widget options form
-		if(isset($_POST['mslide-post-id'])) update_option('mslide-exclude-list',$_POST['mslide-post-id']);
-		else update_option('mslide-exclude-list',array());
+		if(!empty($_POST)  && isset($_POST['mslide-post-id'])) update_option('mslide-exclude-list',$_POST['mslide-post-id']);
+		elseif(!empty($_POST) && !isset($_POST['mslide-post-id'])) update_option('mslide-exclude-list',array());
 		$include = INCLUDE_LIST;
-		$list_array = array('private','publish','draft');
+		$list_array = array('private','publish','draft', 'pending');
 		$args =  array(
 			'sort_column' => 'menu_order',
 			'post_status' => $list_array,
@@ -78,6 +78,7 @@ class SlidingMenuWidget extends WP_Widget {
 		$page_list = get_pages($args);
 		$hidden_pages = get_option('mslide-exclude-list');
 		$depth = 0;
+		echo '<p>'.__('This menu is sorted using the Pages component for WordPress.  If you are looking to change the page order, make your changes there.').'</p>';
 		echo '<ul class="mslide-list">';
 		foreach($page_list as $index => $page) {
 			$current_depth = 0;
@@ -93,8 +94,10 @@ class SlidingMenuWidget extends WP_Widget {
 				for($i=0; $i < $diff; $i++) echo '</ul>';
 				$depth = $current_depth;
 			}
-			if(in_array($page->ID, $hidden_pages)) echo '<li><input name="mslide-post-id[]" value="'.$page->ID.'" type="checkbox" checked />'.$page->post_title.'</li>';
-			else echo '<li><input name="mslide-post-id[]" value="'.$page->ID.'" type="checkbox" />'.$page->post_title.'</li>';
+			if($page->post_status != 'publish') $page_title = $page->post_title.' - <i><b>'.$page->post_status.'</b></i>';
+			else $page_title = $page->post_title;
+			if(in_array($page->ID, $hidden_pages)) echo '<li><input name="mslide-post-id[]" value="'.$page->ID.'" type="checkbox" checked />'.$page_title.'</li>';
+			else echo '<li><input name="mslide-post-id[]" value="'.$page->ID.'" type="checkbox" />'.$page_title.'</li>';
 			$parent_id = $page->post_parent;
 		}
 		echo '</ul>';
@@ -104,5 +107,9 @@ class SlidingMenuWidget extends WP_Widget {
 function memphis_sliding_menu_script() {
 	wp_enqueue_style( 'memphis-sliding-menu-style', plugins_url().'/memphis-sliding-menu/memphis-sliding-menu.css' );
 	wp_enqueue_script( 'memphis-sliding-menu-script', plugins_url().'/memphis-sliding-menu/memphis-sliding-menu.js');
+}
+function memphis_sliding_menu_admin_script() {
+	wp_enqueue_style( 'memphis-sliding-menu-style', plugins_url().'/memphis-sliding-menu/memphis-sliding-menu.css' );
+	//wp_enqueue_script( 'memphis-sliding-menu-script', plugins_url().'/memphis-sliding-menu/memphis-sliding-menu.js');
 }
 ?>
