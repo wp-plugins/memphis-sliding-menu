@@ -10,7 +10,7 @@
 	position: relative !important;
 }
 .memphis-sliding-menu .children { width: inherit !important; }
-.memphis-sliding-menu { margin-top: 10px !important; margin-bottom: 10px !important;}
+.memphis-sliding-menu { margin-top: 0px !important; margin-bottom: 10px !important;}
 .memphis-sliding-menu {
 	width: 100% !important;
 	border-bottom: 1px solid #656659 !important;
