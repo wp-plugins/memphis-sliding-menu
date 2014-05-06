@@ -27,9 +27,12 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 include 'mslide-settings.php';
 include 'mslide-functions.php';
 include 'mslide-shortcode.php';
-add_action( 'widgets_init', 'memphis_sliding_menu_widget' );
-add_action( 'wp_enqueue_scripts', 'memphis_sliding_menu_script' );
-add_action( 'admin_enqueue_scripts', 'memphis_sliding_menu_admin_script' );
+include 'mslide-dashboard.php';
+add_action( 'widgets_init', 'mslide_widget' );
+add_action( 'wp_enqueue_scripts', 'mslide_script' );
+add_action( 'admin_enqueue_scripts', 'mslide_admin_script' );
+add_action('admin_head', 'mslide_admin_document_ready');
 add_action('admin_init', 'mslide_admin');
+add_action('admin_menu', 'mslide_dashboard_menu');
 
 ?>
