@@ -65,7 +65,8 @@ $body_padding_lr = get_option('mslide-body-padding-lr');
 	text-align: left;
 }
 .memphis-sliding-menu { width: 100% !important; border:1px solid <?php echo $border_outter_color; ?>; border-radius: 8px 8px 0 0;}
-.memphis-sliding-menu > ul > li { border-bottom: solid 1px <?php echo $border_inner_color; ?>; background: <?php echo $body_bg_color; ?>; padding: <?php echo $body_padding_tb;?>px <?php echo $body_padding_lr; ?>px; color: <?php echo $body_text_color; ?>;}
+.memphis-sliding-menu > ul > li { border-bottom: solid 1px <?php echo $border_inner_color; ?>; background: <?php echo $body_bg_color; ?>; color: <?php echo $body_text_color; ?>;}
+.memphis-sliding-menu > ul > li:not(:first-child) > a {padding: <?php echo $body_padding_tb;?>px <?php echo $body_padding_lr; ?>px; }
 .memphis-sliding-menu > ul > li:first-child {
 	border-bottom: solid 1px <?php echo $border_inner_color; ?>;
 	border-radius: 8px 8px 0 0 !important;
@@ -76,7 +77,7 @@ $body_padding_lr = get_option('mslide-body-padding-lr');
 
 .memphis-sliding-menu > ul > li:first-child:hover { background: <?php echo $head_bg_hover_color; ?>;  <?php if($head_bg_hover_glow) echo 'box-shadow: inset 0px 0px '.$head_bg_glow_radius.'px '.$head_bg_glow_color; ?>;}
 .memphis-sliding-menu > ul > li:first-child:hover > a { color: <?php echo $head_text_hover_color; ?>; }
-.memphis-sliding-menu > ul > li:first-child > a { font-weight: <?php if($head_bold) echo 'bold'; ?>; color: <?php echo $head_text_color; ?>; font-size: <?php echo $header_font_size; ?>em; font-style: <?php if($head_italic) echo 'italic'; ?>; text-decoration: <?php if($head_strike) echo 'line-through'; ?>; text-shadow: <?php if($head_glow) echo '1px 1px 5px '.$head_glow_color; ?>;}
+.memphis-sliding-menu > ul > li:first-child > a { font-weight: <?php if($head_bold) echo 'bold'; ?>; color: <?php echo $head_text_color; ?>; font-size: <?php echo $header_font_size; ?>em; font-style: <?php if($head_italic) echo 'italic'; ?>; text-decoration: <?php if($head_strike) echo 'line-through'; ?>; text-shadow: <?php if($head_glow) echo '1px 1px '.$head_text_glow_radius.'px '.$head_glow_color; ?>;}
 .memphis-sliding-menu > ul > li:not(:first-child):hover { background: <?php echo $body_bg_hover_color; ?>; }
 .memphis-sliding-menu > ul > li:not(:first-child) > a { display: block !important; color: <?php echo $body_text_color; ?>; font-size: <?php echo $body_font_size; ?>em; font-weight: <?php if($body_bold) echo 'bold'; ?>; font-style: <?php if($body_italic) echo 'italic'; ?>; text-decoration: <?php if($body_strike) echo 'line-through'; ?>; text-shadow: <?php if($body_glow) echo '2px 2px 5px '.$body_glow_color; ?>;}
 .memphis-sliding-menu > ul > li:not(:first-child):hover > a { color: <?php echo $body_text_hover_color; ?>; }
@@ -92,110 +93,112 @@ $body_padding_lr = get_option('mslide-body-padding-lr');
 .memphis-sliding-menu > ul > li > a:hover {
 	text-decoration: none !important;
 }
-.memphis-sliding-menu > ul > li.active { }
+.memphis-sliding-menu ul:first-child > .active { background: <?php echo $body_bg_hover_color; ?>; }
+.memphis-sliding-menu ul:first-child > .active a { color: <?php echo $body_text_hover_color; ?>; }
 .memphis-sliding-menu ul ul  .current_page_item > a { font-weight: normal !important; color: #13B3EA !important;}
 
-li.has-sub > a div {
+li.has-sub > a div, li.has-sub.active > a div {
 	float: right !important;
 	width: 20px !important;
 	height: 20px !important;
 	position: absolute !important;
 	right: 2% !important;
-	top: 0 !important;
+	top: 20% !important;
 	background: url(assets/imgs/icon_plus.png) 96% center no-repeat !important;
 }
-li.has-sub.active > a div {
-	float: right !important;
-	width: 20px !important;
-	height: 20px !important;
-	position: absolute !important;
-	right: 2% !important;
-	top: 18% !important;
-	background: url(assets/imgs/icon_minus.png) 96% center no-repeat !important;
-}
+li.has-sub.active > a div { background: url(assets/imgs/icon_minus.png) 96% center no-repeat !important; }
 
 /* Sub menu Core Style */
 .memphis-sliding-menu ul ul {
 	display: none;
-	background: #fff !important;
+	/*
 	border-right: 1px solid #a2a194 !important;
 	border-left: 1px solid #a2a194 !important;
+	*/
 }
+
 .memphis-sliding-menu ul ul li {
-	padding: 0 !important;
-	margin: 0 !important;
-	border-bottom: 1px solid #d4d4d4 !important;
-	border-top: none !important;
-	background: #f7f7f7 !important;
-	background: -moz-linear-gradient(#f7f7f7 0%, #ececec 100%) !important;
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f7f7f7), color-stop(100%, #ececec)) !important;
-	background: -webkit-linear-gradient(#f7f7f7 0%, #ececec 100%) !important;
-	background: linear-gradient(#f7f7f7 0%, #ececec 100%) !important;
+	padding: 0;
+	margin: 0;
+	/*border-bottom: 1px solid <?php echo $border_inner_color; ?>;*/
+	border-top: none;
+	background: <?php echo $body_bg_color; ?>;
 }
+
 .memphis-sliding-menu ul ul li:last-child {
 	border-bottom: none !important;
 }
 .memphis-sliding-menu ul ul a:hover {
 	color: #e94f31 !important;
+	
 }
 /* Sub menu 1 */
 .memphis-sliding-menu ul ul a {
-	padding: 10px 10px 10px 25px !important;
+	padding: <?php echo $body_padding_tb;?>px <?php echo $body_padding_lr; ?>px;
+	padding-left: <?php echo $body_padding_lr+15; ?>px;
+	padding-right: <?php echo $body_padding_lr; ?>px;
 	display: block !important;
-	color: #676767 !important;
-	font-size: .9em !important;
-	font-weight: normal !important;
+	color: <?php echo $body_text_color; ?> !important;
+	border-top: 1px solid <?php echo $border_inner_color; ?>;
+	font-size: <?php echo $body_font_size; ?>em;
 }
 .memphis-sliding-menu ul ul a:before {
 	content: '\00dbb' !important;
 	position: absolute !important;
-	left: 10px !important;
+	left: <?php echo $body_padding_lr; ?>px !important;
 	color: #e94f31 !important;
 }
-.memphis-sliding-menu ul ul ul { border: none !important; border-top: solid 1px #d4d4d4 !important; }
+.memphis-sliding-menu ul ul ul { border: none !important; }
 /* Sub menu 2 */
 .memphis-sliding-menu ul ul ul a {
-	padding: 10px 10px 10px 35px !important;
+	padding: <?php echo $body_padding_tb;?>px <?php echo $body_padding_lr; ?>px;
+	padding-left: <?php echo $body_padding_lr+25; ?>px;
+	padding-right: <?php echo $body_padding_lr; ?>px;
 	display: block !important;
-	color: #676767 !important;
-	font-size: .9em !important;
-	font-weight: normal !important;
+	color: <?php echo $body_text_color; ?> !important;
+	border-top: 1px solid <?php echo $border_inner_color; ?>;
+	font-size: <?php echo $body_font_size; ?>em;
 }
 .memphis-sliding-menu ul ul ul a:before {
 	content: '\00dbb' !important;
 	position: absolute !important;
-	left: 20px !important;
+	left: <?php echo $body_padding_lr+10; ?>px !important;
 	color: #e9c669 !important;
 }
 /* Sub menu 3 */
 .memphis-sliding-menu ul ul ul ul a {
-	padding: 10px 10px 10px 55px !important;
+	padding: <?php echo $body_padding_tb;?>px <?php echo $body_padding_lr; ?>px;
+	padding-left: <?php echo $body_padding_lr+35; ?>px;
+	padding-right: <?php echo $body_padding_lr; ?>px;
 	display: block !important;
-	color: #676767 !important;
-	font-size: .9em !important;
-	font-weight: normal !important;
+	color: <?php echo $body_text_color; ?> !important;
+	border-top: 1px solid <?php echo $border_inner_color; ?>;
+	font-size: <?php echo $body_font_size; ?>em;
 }
 .memphis-sliding-menu ul ul ul ul a:before {
 	content: '\00dbb' !important;
 	position: absolute !important;
-	left: 40px !important;
+	left: <?php echo $body_padding_lr+20; ?>px !important;
 	color: #e9904c !important;
 }
 /* Sub menu 4*/
 .memphis-sliding-menu ul ul ul ul ul a {
-	padding: 10px 10px 10px 75px !important;
+	padding: <?php echo $body_padding_tb;?>px <?php echo $body_padding_lr; ?>px;
+	padding-left: <?php echo $body_padding_lr+45; ?>px;
+	padding-right: <?php echo $body_padding_lr; ?>px;
 	display: block !important;
-	color: #676767 !important;
-	font-size: .9em !important;
-	font-weight: normal !important;
+	color: <?php echo $body_text_color; ?> !important;
+	border-top: 1px solid <?php echo $border_inner_color; ?>;
+	font-size: <?php echo $body_font_size; ?>em;
 }
 .memphis-sliding-menu ul ul ul ul ul a:before {
 	content: '\00dbb' !important;
 	position: absolute !important;
-	left: 60px !important;
+	left: <?php echo $body_padding_lr+30; ?>px !important;
 	color: #e96497 !important;
 }
 
+/* ADMIN STYLE */
 .mslide-table {text-align: left; font-size: 20px !important; color: #00B2CE !important; border: none;	border-collapse: collapse; margin: 0 10px !important;	padding: 0 !important;	width: 97%;	}
 .mslide-table th { padding: 5px; border-bottom: solid 4px #c1c1c1; font-size: 22px; color: #555; }
 .mslide-table .mslide-light-bg { padding: 10px 20px; background: #fff; vertical-align: top; }
@@ -204,7 +207,6 @@ li.has-sub.active > a div {
 .mslide-table a:hover { color: #FF5000 !important; background: #ffffff; font-size: 12px; padding: 5px; border-bottom: solid 4px #929292; font-weight: bold; }
 .mslide-table .mslide-view-page { width: 200px; text-align: right; vertical-align: top;}
 .mslide-list ul, .mslide-list > ul > ul { padding-left: 20px !important; }
-/* ADMIN STYLE */
 .form-table td { vertical-align: top; }
 .mslide-admin-sliding-menu-width { width: 100% !important; }
 .mslide-range-textbox { width: 30px; font-size: 0.7em; position: absolute; }

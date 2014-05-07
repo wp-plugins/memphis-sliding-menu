@@ -20,16 +20,21 @@ function mslide_admin_menu() {
 	    else if (element == 'mslide-header-text-color-mslide-picker') jQuery('.memphis-sliding-menu > ul > li:first-child a').css('color', ui.color.toString());
 	    else if (element == 'mslide-header-text-hover-color-mslide-picker') first_child_text_hover_color = ui.color.toString();
 	    else if (element == 'mslide-header-glow-color-mslide-picker') {
-		if (jQuery('#mslide-header-glow').is(':checked')) jQuery('.memphis-sliding-menu > ul > li:first-child a').css('text-shadow', '2px 2px 5px '+ui.color.toString());
+		if (jQuery('#mslide-header-glow').is(':checked')) jQuery('.memphis-sliding-menu > ul > li:first-child a').css('text-shadow', '1px 1px '+ header_text_glow_radius+'px '+ui.color.toString());
 		header_glow_color = ui.color.toString();
 	    }
+	    else if (element == 'mslide-header-bg-glow-color-mslide-picker') {
+		if (jQuery('#mslide-header-bg-glow').is(':checked')) jQuery('.memphis-sliding-menu > ul > li:first-child').css('box-shadow', 'inset 0px 0px '+ header_bg_glow_radius+'px '+ui.color.toString());
+		header_bg_glow_color = ui.color.toString();
+	    }
+	    
 	    
 	    else if (element == 'mslide-body-bg-color-mslide-picker') jQuery('.memphis-sliding-menu > ul > li:not(:first-child)').css('background', ui.color.toString());
 	    else if (element == 'mslide-body-bg-hover-color-mslide-picker') body_bg_hover_color = ui.color.toString();
 	    else if (element == 'mslide-body-text-color-mslide-picker') jQuery('.memphis-sliding-menu > ul > li:not(:first-child) > a').css('color', ui.color.toString());
 	    else if (element == 'mslide-body-text-hover-color-mslide-picker') body_text_hover_color = ui.color.toString();
 	    else if (element == 'mslide-body-glow-color-mslide-picker') {
-		if (jQuery('#mslide-body-glow').is(':checked')) jQuery('.memphis-sliding-menu > ul > li:not(:first-child) > a').css('text-shadow', '2px 2px 5px '+ui.color.toString());
+		if (jQuery('#mslide-body-glow').is(':checked')) jQuery('.memphis-sliding-menu > ul > li:not(:first-child) > a').css('text-shadow', '1px 1px 5px '+ui.color.toString());
 		body_glow_color = ui.color.toString();
 	    }
 	    
@@ -44,12 +49,13 @@ function mslide_admin_menu() {
     jQuery('.memphis-sliding-menu > ul > li:first-child').hover(
 	function() {
 	    jQuery(this).css('background', first_child_bg_hover_color);
-	    /*alert(jQuery( '#mslide-header-bg-glow-radius-mslide-range-text').prop('value')+'px');*/
-	    jQuery(this).css('box-shadow', '100px');
+	    jQuery(this).css('box-shadow', 'inset 0px 0px '+header_bg_glow_radius+'px '+header_bg_glow_color);
 	    jQuery(this).children().css('color', first_child_text_hover_color);
 	}, function() {
 	    jQuery(this).css('background', '');
+	    if (jQuery('#mslide-header-bg-glow').not(':checked')) jQuery(this).css('box-shadow', '');
 	    jQuery(this).children().css('color', '');
+	   
 	}
     );
     jQuery('#mslide-header-bold').on("input change", function() {
@@ -122,15 +128,18 @@ function mslide_admin_menu() {
 	} else  if (element == 'mslide-header-font-size-mslide-range') {
 	    jQuery('.memphis-sliding-menu > ul > li:first-child a').css('font-size', value+'em');
 	    jQuery( '#mslide-header-font-size-mslide-range-text').prop('value', value); 
-	}
-	else  if (element == 'mslide-body-font-size-mslide-range') {
+	} else  if (element == 'mslide-body-font-size-mslide-range') {
 	    jQuery('.memphis-sliding-menu > ul > li:not(:first-child) > a').css('font-size', value+'em');
 	    jQuery( '#mslide-body-font-size-mslide-range-text').prop('value', value); 
-	}
-	else  if (element == 'mslide-header-bg-glow-radius-mslide-range') {
-	    jQuery('.memphis-sliding-menu > ul > li:first-child').css('box-shadow', value+'px');
-	    jQuery( '#mslide-header-bg-glow-radius-mslide-range-text').prop('value', value); 
-	}
+	} else  if (element == 'mslide-header-bg-glow-radius-mslide-range') {
+	    header_bg_glow_radius = value;
+	    if (jQuery('#mslide-header-bg-glow').is(':checked')) jQuery('.memphis-sliding-menu > ul > li:first-child').css('box-shadow', 'inset 0px 0px '+header_bg_glow_radius+'px '+header_bg_glow_color);
+	    jQuery( '#mslide-header-bg-glow-radius-mslide-range-text').prop('value', header_bg_glow_radius); 
+	} else  if (element == 'mslide-header-text-glow-radius-mslide-range') {
+	    header_text_glow_radius = value;
+	    jQuery('.memphis-sliding-menu > ul > li:first-child > a').css('text-shadow', '1px 1px '+header_text_glow_radius+'px '+header_glow_color);
+	    jQuery( '#mslide-header-text-glow-radius-mslide-range-text').prop('value', header_text_glow_radius); 
+	} 
 	
     });
     // FONT CHANGES
