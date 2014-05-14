@@ -72,7 +72,7 @@ $body_padding_lr = get_option('mslide-body-padding-lr');
 	border-radius: 8px 8px 0 0 !important;
 	background: <?php echo $head_bg_color; ?>;
 	padding: <?php echo $header_padding_tb;?>px <?php echo $header_padding_lr; ?>px;
-	<?php if($head_bg_glow) echo 'box-shadow: inset 0px 0px '.$head_bg_glow_radius.'px '.$head_bg_glow_color; ?>;
+	<?php if($head_bg_glow) echo 'box-shadow: inset 0px 0px '.$head_bg_glow_radius.'px '.$head_bg_glow_color.';'; ?>
 }
 
 .memphis-sliding-menu > ul > li:first-child:hover { background: <?php echo $head_bg_hover_color; ?>;  <?php if($head_bg_hover_glow) echo 'box-shadow: inset 0px 0px '.$head_bg_glow_radius.'px '.$head_bg_glow_color; ?>;}
