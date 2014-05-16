@@ -77,9 +77,9 @@ $body_padding_lr = get_option('mslide-body-padding-lr');
 
 .memphis-sliding-menu > ul > li:first-child:hover { background: <?php echo $head_bg_hover_color; ?>;  <?php if($head_bg_hover_glow) echo 'box-shadow: inset 0px 0px '.$head_bg_glow_radius.'px '.$head_bg_glow_color; ?>;}
 .memphis-sliding-menu > ul > li:first-child:hover > a { color: <?php echo $head_text_hover_color; ?>; }
-.memphis-sliding-menu > ul > li:first-child > a { font-weight: <?php if($head_bold) echo 'bold'; ?>; color: <?php echo $head_text_color; ?>; font-size: <?php echo $header_font_size; ?>em; font-style: <?php if($head_italic) echo 'italic'; ?>; text-decoration: <?php if($head_strike) echo 'line-through'; ?>; text-shadow: <?php if($head_glow) echo '1px 1px '.$head_text_glow_radius.'px '.$head_glow_color; ?>;}
+.memphis-sliding-menu > ul > li:first-child > a { <?php if($head_bold) echo 'font-weight: bold;'; ?> color: <?php echo $head_text_color; ?>; font-size: <?php echo $header_font_size; ?>em; <?php if($head_italic) echo 'font-style: italic;'; ?> <?php if($head_strike) echo 'text-decoration: line-through;'; ?> <?php if($head_glow) echo 'text-shadow: 1px 1px '.$head_text_glow_radius.'px '.$head_glow_color.';'; ?>}
 .memphis-sliding-menu > ul > li:not(:first-child):hover { background: <?php echo $body_bg_hover_color; ?>; }
-.memphis-sliding-menu > ul > li:not(:first-child) > a { display: block !important; color: <?php echo $body_text_color; ?>; font-size: <?php echo $body_font_size; ?>em; font-weight: <?php if($body_bold) echo 'bold'; ?>; font-style: <?php if($body_italic) echo 'italic'; ?>; text-decoration: <?php if($body_strike) echo 'line-through'; ?>; text-shadow: <?php if($body_glow) echo '2px 2px 5px '.$body_glow_color; ?>;}
+.memphis-sliding-menu > ul > li:not(:first-child) > a { display: block !important; color: <?php echo $body_text_color; ?>; font-size: <?php echo $body_font_size; ?>em; <?php if($body_bold) echo 'font-weight: bold;'; ?> <?php if($body_italic) echo 'font-style: italic;'; ?> <?php if($body_strike) echo 'text-decoration: line-through;'; ?> <?php if($body_glow) echo 'text-shadow: 2px 2px 5px '.$body_glow_color.';'; ?>}
 .memphis-sliding-menu > ul > li:not(:first-child):hover > a { color: <?php echo $body_text_hover_color; ?>; }
 .memphis-sliding-menu > ul > li:last-child { border: none !important; }
 
@@ -93,8 +93,8 @@ $body_padding_lr = get_option('mslide-body-padding-lr');
 .memphis-sliding-menu > ul > li > a:hover {
 	text-decoration: none !important;
 }
-.memphis-sliding-menu ul:first-child > .active { background: <?php echo $body_bg_hover_color; ?>; }
-.memphis-sliding-menu ul:first-child > .active a { color: <?php echo $body_text_hover_color; ?>; }
+.memphis-sliding-menu ul > .active:not(:first-child) { background: <?php echo $body_bg_hover_color; ?>; }
+.memphis-sliding-menu ul > .active:not(:first-child) > a { color: <?php echo $body_text_hover_color; ?>; }
 .memphis-sliding-menu ul ul  .current_page_item > a { font-weight: normal !important; color: #13B3EA !important;}
 
 li.has-sub > a div, li.has-sub.active > a div {
