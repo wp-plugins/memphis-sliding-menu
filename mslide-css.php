@@ -47,40 +47,36 @@ $header_padding_tb = get_option('mslide-header-padding-tb');
 $header_padding_lr = get_option('mslide-header-padding-lr');
 $body_padding_tb = get_option('mslide-body-padding-tb');
 $body_padding_lr = get_option('mslide-body-padding-lr');
-/*
-
-
-*/
-
-
 ?>
 #memphis-sliding-menu, .memphis-sliding-menu ul, .memphis-sliding-menu li, .memphis-sliding-menu a {
-	margin: 0;
-	padding: 0;
+	margin: 0 !important;
+	padding: 0 !important;
 	border: none;
 	list-style: none;
 	text-decoration: none;
 	position: relative;
-	font-family: "<?php echo $font_family; ?>", Helvetica,sans-serif;
+	<?php if($font_family != 'theme') { ?>
+	font-family: "<?php echo $font_family; ?>", Helvetica,sans-serif !important;
+	<?php } ?>
 	text-align: left;
 }
-.memphis-sliding-menu { width: 100% !important; border:1px solid <?php echo $border_outter_color; ?>; border-radius: 8px 8px 0 0;}
+.memphis-sliding-menu { width: 100% !important; border:1px solid <?php echo $border_outter_color; ?>; border-radius: 8px 8px 0 0; margin-bottom: 5px;}
 .memphis-sliding-menu > ul > li { border-bottom: solid 1px <?php echo $border_inner_color; ?>; background: <?php echo $body_bg_color; ?>; color: <?php echo $body_text_color; ?>;}
-.memphis-sliding-menu > ul > li:not(:first-child) > a {padding: <?php echo $body_padding_tb;?>px <?php echo $body_padding_lr; ?>px; }
+.memphis-sliding-menu > ul > li:not(:first-child) > a {padding: <?php echo $body_padding_tb;?>px <?php echo $body_padding_lr; ?>px !important; }
 .memphis-sliding-menu > ul > li:first-child {
-	border-bottom: solid 1px <?php echo $border_inner_color; ?>;
+	border-bottom: solid 1px <?php echo $border_inner_color; ?> !important;
 	border-radius: 8px 8px 0 0 !important;
-	background: <?php echo $head_bg_color; ?>;
-	padding: <?php echo $header_padding_tb;?>px <?php echo $header_padding_lr; ?>px;
-	<?php if($head_bg_glow) echo 'box-shadow: inset 0px 0px '.$head_bg_glow_radius.'px '.$head_bg_glow_color.';'; ?>
+	background: <?php echo $head_bg_color; ?> !important;
+	padding: <?php echo $header_padding_tb;?>px <?php echo $header_padding_lr; ?>px !important;
+	<?php if($head_bg_glow) echo 'box-shadow: inset 0px 0px '.$head_bg_glow_radius.'px '.$head_bg_glow_color.' !important;'; ?>
 }
 
-.memphis-sliding-menu > ul > li:first-child:hover { background: <?php echo $head_bg_hover_color; ?>;  <?php if($head_bg_hover_glow) echo 'box-shadow: inset 0px 0px '.$head_bg_glow_radius.'px '.$head_bg_glow_color; ?>;}
-.memphis-sliding-menu > ul > li:first-child:hover > a { color: <?php echo $head_text_hover_color; ?>; }
-.memphis-sliding-menu > ul > li:first-child > a { <?php if($head_bold) echo 'font-weight: bold;'; ?> color: <?php echo $head_text_color; ?>; font-size: <?php echo $header_font_size; ?>em; <?php if($head_italic) echo 'font-style: italic;'; ?> <?php if($head_strike) echo 'text-decoration: line-through;'; ?> <?php if($head_glow) echo 'text-shadow: 1px 1px '.$head_text_glow_radius.'px '.$head_glow_color.';'; ?>}
-.memphis-sliding-menu > ul > li:not(:first-child):hover { background: <?php echo $body_bg_hover_color; ?>; }
-.memphis-sliding-menu > ul > li:not(:first-child) > a { display: block !important; color: <?php echo $body_text_color; ?>; font-size: <?php echo $body_font_size; ?>em; <?php if($body_bold) echo 'font-weight: bold;'; ?> <?php if($body_italic) echo 'font-style: italic;'; ?> <?php if($body_strike) echo 'text-decoration: line-through;'; ?> <?php if($body_glow) echo 'text-shadow: 2px 2px 5px '.$body_glow_color.';'; ?>}
-.memphis-sliding-menu > ul > li:not(:first-child):hover > a { color: <?php echo $body_text_hover_color; ?>; }
+.memphis-sliding-menu > ul > li:first-child:hover { background: <?php echo $head_bg_hover_color; ?> !important;  <?php if($head_bg_hover_glow) echo 'box-shadow: inset 0px 0px '.$head_bg_glow_radius.'px '.$head_bg_glow_color; ?> !important;}
+.memphis-sliding-menu > ul > li:first-child:hover > a { color: <?php echo $head_text_hover_color; ?> !important; }
+.memphis-sliding-menu > ul > li:first-child > a { <?php if($head_bold) echo 'font-weight: bold !important;'; ?> color: <?php echo $head_text_color; ?> !important; font-size: <?php echo $header_font_size; ?>em; <?php if($head_italic) echo 'font-style: italic;'; ?> <?php if($head_strike) echo 'text-decoration: line-through;'; ?> <?php if($head_glow) echo 'text-shadow: 1px 1px '.$head_text_glow_radius.'px '.$head_glow_color.' !important;'; ?>}
+.memphis-sliding-menu > ul > li:not(:first-child):hover { background: <?php echo $body_bg_hover_color; ?> !important; }
+.memphis-sliding-menu > ul > li:not(:first-child) > a { display: block !important; color: <?php echo $body_text_color; ?> !important; font-size: <?php echo $body_font_size; ?>em !important; <?php if($body_bold) echo 'font-weight: bold !important;'; ?> <?php if($body_italic) echo 'font-style: italic !important;'; ?> <?php if($body_strike) echo 'text-decoration: line-through !important;'; ?> <?php if($body_glow) echo 'text-shadow: 2px 2px 5px '.$body_glow_color.' !important;'; ?>}
+.memphis-sliding-menu > ul > li:not(:first-child):hover > a { color: <?php echo $body_text_hover_color; ?> !important; }
 .memphis-sliding-menu > ul > li:last-child { border: none !important; }
 
 .memphis-sliding-menu > ul > li > a > span {
@@ -93,8 +89,8 @@ $body_padding_lr = get_option('mslide-body-padding-lr');
 .memphis-sliding-menu > ul > li > a:hover {
 	text-decoration: none !important;
 }
-.memphis-sliding-menu ul > .active:not(:first-child) { background: <?php echo $body_bg_hover_color; ?>; }
-.memphis-sliding-menu ul > .active:not(:first-child) > a { color: <?php echo $body_text_hover_color; ?>; }
+.memphis-sliding-menu ul > .active:not(:first-child) { background: <?php echo $body_bg_hover_color; ?> !important; }
+.memphis-sliding-menu ul > .active:not(:first-child) > a { color: <?php echo $body_text_hover_color; ?> !important; }
 .memphis-sliding-menu ul ul  .current_page_item > a { font-weight: normal !important; color: #13B3EA !important;}
 
 li.has-sub > a div, li.has-sub.active > a div {
@@ -122,7 +118,7 @@ li.has-sub.active > a div { background: url(assets/imgs/icon_minus.png) 96% cent
 	margin: 0;
 	/*border-bottom: 1px solid <?php echo $border_inner_color; ?>;*/
 	border-top: none;
-	background: <?php echo $body_bg_color; ?>;
+	background: <?php echo $body_bg_color; ?> !important;
 }
 
 .memphis-sliding-menu ul ul li:last-child {
@@ -134,13 +130,13 @@ li.has-sub.active > a div { background: url(assets/imgs/icon_minus.png) 96% cent
 }
 /* Sub menu 1 */
 .memphis-sliding-menu ul ul a {
-	padding: <?php echo $body_padding_tb;?>px <?php echo $body_padding_lr; ?>px;
-	padding-left: <?php echo $body_padding_lr+15; ?>px;
-	padding-right: <?php echo $body_padding_lr; ?>px;
+	padding: <?php echo $body_padding_tb;?>px <?php echo $body_padding_lr; ?>px !important;
+	padding-left: <?php echo $body_padding_lr+15; ?>px !important;
+	padding-right: <?php echo $body_padding_lr; ?>px !important;
 	display: block !important;
 	color: <?php echo $body_text_color; ?> !important;
-	border-top: 1px solid <?php echo $border_inner_color; ?>;
-	font-size: <?php echo $body_font_size; ?>em;
+	border-top: 1px solid <?php echo $border_inner_color; ?> !important;
+	font-size: <?php echo $body_font_size; ?>em !important;
 }
 .memphis-sliding-menu ul ul a:before {
 	content: '\00dbb' !important;
@@ -151,13 +147,13 @@ li.has-sub.active > a div { background: url(assets/imgs/icon_minus.png) 96% cent
 .memphis-sliding-menu ul ul ul { border: none !important; }
 /* Sub menu 2 */
 .memphis-sliding-menu ul ul ul a {
-	padding: <?php echo $body_padding_tb;?>px <?php echo $body_padding_lr; ?>px;
-	padding-left: <?php echo $body_padding_lr+25; ?>px;
-	padding-right: <?php echo $body_padding_lr; ?>px;
+	padding: <?php echo $body_padding_tb;?>px <?php echo $body_padding_lr; ?>px !important;
+	padding-left: <?php echo $body_padding_lr+25; ?>px !important;
+	padding-right: <?php echo $body_padding_lr; ?>px !important;
 	display: block !important;
 	color: <?php echo $body_text_color; ?> !important;
-	border-top: 1px solid <?php echo $border_inner_color; ?>;
-	font-size: <?php echo $body_font_size; ?>em;
+	border-top: 1px solid <?php echo $border_inner_color; ?> !important;
+	font-size: <?php echo $body_font_size; ?>em !important;
 }
 .memphis-sliding-menu ul ul ul a:before {
 	content: '\00dbb' !important;

@@ -94,7 +94,7 @@ function mslide_script() {
 }
 function mslide_admin_script() {
 	//LOAD MEMPHIS SLIDING MENU SCRIPTS
-	wp_enqueue_style( 'memphis-sliding-menu-style', plugins_url().'/memphis-sliding-menu/mslide-css.php' );
+	wp_enqueue_style( 'memphis-sliding-menu-style', plugins_url().'/memphis-sliding-menu/mslide-admin-css.php' );
 	wp_enqueue_script( 'memphis-sliding-menu-script', plugins_url().'/memphis-sliding-menu/memphis-sliding-menu.js');
 	//WORDPRESS IRIS COLOR PICKER
 	wp_enqueue_style( 'wp-color-picker' );

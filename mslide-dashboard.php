@@ -30,6 +30,7 @@ function mslide_dashboard() {
 				<label><?php _e('Font Type'); ?></label>
 				<?php $font_family = get_option('mslide-font-family'); ?>
 				<select name="mslide-font-family" class="mslide-select" id="mslide-font-family">
+					<option value="theme" <?php if($font_family == 'theme') echo 'selected'; ?> >Theme Font</option>
 					<option value="arial" <?php if($font_family == 'arial') echo 'selected'; ?> >Arial</option>
 					<option value="arial-black" <?php if($font_family == 'arial-black') echo 'selected'; ?>>Arial Black</option>
 					<option value="comic-sans-ms" <?php if($font_family == 'comic-sans-ms') echo 'selected'; ?>>Comic Sans MS</option>

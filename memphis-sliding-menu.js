@@ -145,7 +145,10 @@ function mslide_admin_menu() {
     // FONT CHANGES
      jQuery('#mslide-font-family').on("input change", function() {
 	var font_family = jQuery(this).prop('value').replace(/-/g,' ');
-	jQuery('#memphis-sliding-menu, .memphis-sliding-menu ul, .memphis-sliding-menu li, .memphis-sliding-menu a').css('font-family',font_family);
+	if (font_family == 'theme') {
+	    jQuery('#memphis-sliding-menu, .memphis-sliding-menu ul, .memphis-sliding-menu li, .memphis-sliding-menu a').css('font-family','inherit');
+	} else jQuery('#memphis-sliding-menu, .memphis-sliding-menu ul, .memphis-sliding-menu li, .memphis-sliding-menu a').css('font-family',font_family);
+	
     });
     jQuery('#mslide-header-bold').on("input change", function() {
 	if (jQuery(this).prop('checked')) jQuery('.memphis-sliding-menu > ul > li:first-child > a').css('font-weight','bold');
