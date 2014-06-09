@@ -39,9 +39,11 @@ class mslide_init_widget extends WP_Widget {
 				memphis_sliding_menu();
 			});
 		</script>
+		<li class="widget" id="mslide-widget">
 		<div class="memphis-sliding-menu noprint">
 			<ul> <?php wp_list_pages($args); ?> </ul>
 		</div>
+		</li>
 		<?php
 	}
 

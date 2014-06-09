@@ -60,7 +60,7 @@ $body_padding_lr = get_option('mslide-body-padding-lr');
 	<?php } ?>
 	text-align: left;
 }
-.memphis-sliding-menu { width: 100% !important; border:1px solid <?php echo $border_outter_color; ?>; border-radius: 8px 8px 0 0; margin-bottom: 5px;}
+.memphis-sliding-menu { width: 100% !important; border:1px solid <?php echo $border_outter_color; ?>; border-radius: 8px 8px 0 0; }
 .memphis-sliding-menu > ul > li { border-bottom: solid 1px <?php echo $border_inner_color; ?>; background: <?php echo $body_bg_color; ?>; color: <?php echo $body_text_color; ?>;}
 .memphis-sliding-menu > ul > li:not(:first-child) > a {padding: <?php echo $body_padding_tb;?>px <?php echo $body_padding_lr; ?>px !important; }
 .memphis-sliding-menu > ul > li:first-child {
