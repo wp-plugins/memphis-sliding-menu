@@ -33,6 +33,8 @@ Once uploaded the configuration menu is located in either the "Memphis" menu wit
 3. screenshot-3.png
 
 == Changelog ==
+= 1.0.7 =
+* *Update* - Changed the main header to square corners.
 = 1.0.6 =
 * fixed bug with Menus editor.
 = 1.0.5 =

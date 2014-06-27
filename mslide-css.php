@@ -60,12 +60,11 @@ $body_padding_lr = get_option('mslide-body-padding-lr');
 	<?php } ?>
 	text-align: left;
 }
-.memphis-sliding-menu { width: 100% !important; border:1px solid <?php echo $border_outter_color; ?>; border-radius: 8px 8px 0 0; }
+.memphis-sliding-menu { width: 100% !important; border:1px solid <?php echo $border_outter_color; ?>; }
 .memphis-sliding-menu > ul > li { border-bottom: solid 1px <?php echo $border_inner_color; ?>; background: <?php echo $body_bg_color; ?>; color: <?php echo $body_text_color; ?>;}
 .memphis-sliding-menu > ul > li:not(:first-child) > a {padding: <?php echo $body_padding_tb;?>px <?php echo $body_padding_lr; ?>px !important; }
 .memphis-sliding-menu > ul > li:first-child {
 	border-bottom: solid 1px <?php echo $border_inner_color; ?> !important;
-	border-radius: 8px 8px 0 0 !important;
 	background: <?php echo $head_bg_color; ?> !important;
 	padding: <?php echo $header_padding_tb;?>px <?php echo $header_padding_lr; ?>px !important;
 	<?php if($head_bg_glow) echo 'box-shadow: inset 0px 0px '.$head_bg_glow_radius.'px '.$head_bg_glow_color.' !important;'; ?>
@@ -82,9 +81,6 @@ $body_padding_lr = get_option('mslide-body-padding-lr');
 .memphis-sliding-menu > ul > li > a > span {
 	display: block !important;
 	padding: 12px 10px !important;
-	-webkit-border-radius: 4px !important;
-	-moz-border-radius: 4px !important;
-	border-radius: 4px !important;
 }
 .memphis-sliding-menu > ul > li > a:hover {
 	text-decoration: none !important;
@@ -163,9 +159,9 @@ li.has-sub.active > a div { background: url(assets/imgs/icon_minus.png) 96% cent
 }
 /* Sub menu 3 */
 .memphis-sliding-menu ul ul ul ul a {
-	padding: <?php echo $body_padding_tb;?>px <?php echo $body_padding_lr; ?>px;
-	padding-left: <?php echo $body_padding_lr+35; ?>px;
-	padding-right: <?php echo $body_padding_lr; ?>px;
+	padding: <?php echo $body_padding_tb;?>px <?php echo $body_padding_lr; ?>px !important;
+	padding-left: <?php echo $body_padding_lr+35; ?>px !important;
+	padding-right: <?php echo $body_padding_lr; ?>px !important;
 	display: block !important;
 	color: <?php echo $body_text_color; ?> !important;
 	border-top: 1px solid <?php echo $border_inner_color; ?>;
@@ -179,9 +175,9 @@ li.has-sub.active > a div { background: url(assets/imgs/icon_minus.png) 96% cent
 }
 /* Sub menu 4*/
 .memphis-sliding-menu ul ul ul ul ul a {
-	padding: <?php echo $body_padding_tb;?>px <?php echo $body_padding_lr; ?>px;
-	padding-left: <?php echo $body_padding_lr+45; ?>px;
-	padding-right: <?php echo $body_padding_lr; ?>px;
+	padding: <?php echo $body_padding_tb;?>px <?php echo $body_padding_lr; ?>px !important;
+	padding-left: <?php echo $body_padding_lr+45; ?>px !important;
+	padding-right: <?php echo $body_padding_lr; ?>px !important;
 	display: block !important;
 	color: <?php echo $body_text_color; ?> !important;
 	border-top: 1px solid <?php echo $border_inner_color; ?>;

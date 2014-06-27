@@ -60,12 +60,11 @@ $body_padding_lr = get_option('mslide-body-padding-lr');
 	<?php } ?>
 	text-align: left;
 }
-.memphis-sliding-menu { width: 100% ; border:1px solid <?php echo $border_outter_color; ?>; border-radius: 8px 8px 0 0; margin-bottom: 5px;}
+.memphis-sliding-menu { width: 100% ; border:1px solid <?php echo $border_outter_color; ?>; margin-bottom: 5px;}
 .memphis-sliding-menu > ul > li { border-bottom: solid 1px <?php echo $border_inner_color; ?>; background: <?php echo $body_bg_color; ?>; color: <?php echo $body_text_color; ?>;}
 .memphis-sliding-menu > ul > li:not(:first-child) > a {padding: <?php echo $body_padding_tb;?>px <?php echo $body_padding_lr; ?>px; }
 .memphis-sliding-menu > ul > li:first-child {
 	border-bottom: solid 1px <?php echo $border_inner_color; ?> ;
-	border-radius: 8px 8px 0 0 ;
 	background: <?php echo $head_bg_color; ?> ;
 	padding: <?php echo $header_padding_tb;?>px <?php echo $header_padding_lr; ?>px ;
 	<?php if($head_bg_glow) echo 'box-shadow: inset 0px 0px '.$head_bg_glow_radius.'px '.$head_bg_glow_color.' ;'; ?>
@@ -209,3 +208,6 @@ li.has-sub.active > a div { background: url(assets/imgs/icon_minus.png) 96% cent
 .mslide-select { font-size: 0.8em; height: auto ; }
 .mslide-setting-form label { vertical-align: top; font-size: 0.8em; }
 .mslide-setting-form h4 { color: #0074a2; padding: 0; margin: 8px 0; border-bottom: dashed 1px #dbdbdb;}
+
+/* WORDPRESS DEFAULTS */
+#mslide-widget { list-style: none !important; }
