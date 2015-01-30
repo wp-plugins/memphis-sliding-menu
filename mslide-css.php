@@ -53,7 +53,7 @@ $body_padding_lr = get_option('mslide-body-padding-lr');
 	padding: 0 !important;
 	border: none;
 	list-style: none;
-	text-decoration: none;
+	text-decoration: none !important;
 	position: relative;
 	<?php if($font_family != 'theme') { ?>
 	font-family: "<?php echo $font_family; ?>", Helvetica,sans-serif !important;
