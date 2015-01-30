@@ -5,8 +5,8 @@ Tags: plugin,documents,memphis,bhaldie,wordpress,library,repository,files,versio
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.5
-Tested up to: 3.9
-Stable tag: 1.0.6
+Tested up to: 4.0
+Stable tag: 1.0.7
 
 A sliding menu widget for all your  WordPress pages. 
 
