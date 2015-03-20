@@ -210,4 +210,5 @@ li.has-sub.active > a div { background: url(assets/imgs/icon_minus.png) 96% cent
 .mslide-setting-form h4 { color: #0074a2; padding: 0; margin: 8px 0; border-bottom: dashed 1px #dbdbdb;}
 
 /* WORDPRESS DEFAULTS */
-#mslide-widget { list-style: none !important; }
+#mslide-widget { list-style: none !important; background-color: transparent !important;  }
+

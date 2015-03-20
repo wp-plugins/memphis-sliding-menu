@@ -196,24 +196,24 @@ function mphs_show_current_menu(menu_item) {
 
 function msm_toogle_menu(menu_item, event) {
 	event.preventDefault();
-	var checkElement = $(menu_item).parent().next();
+	var checkElement = jQuery(menu_item).parent().next();
 	var depth = jQuery(checkElement).parents().length;
 	if(depth == 8) {
 		jQuery('.memphis-sliding-menu li').removeClass('active');
 		jQuery(menu_item).closest('li').addClass('active');	
 	
 		if((checkElement.is('ul')) && (checkElement.is(':visible'))) {
-			$(menu_item).closest('li').removeClass('active');
+			jQuery(menu_item).closest('li').removeClass('active');
 			checkElement.slideUp('normal');
 		}
 	
 		if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
-			$('.memphis-sliding-menu ul ul:visible').slideUp('normal');
+			jQuery('.memphis-sliding-menu ul ul:visible').slideUp('normal');
 			checkElement.slideDown('normal');
 		}
 	} else {
-		if (jQuery(menu_item).closest('li').hasClass('active')) { $(menu_item).closest('li').removeClass('active'); checkElement.slideUp('normal'); }
-		else { $(menu_item).closest('li').addClass('active'); checkElement.slideDown('normal'); }
+		if (jQuery(menu_item).closest('li').hasClass('active')) { jQuery(menu_item).closest('li').removeClass('active'); checkElement.slideUp('normal'); }
+		else { jQuery(menu_item).closest('li').addClass('active'); checkElement.slideDown('normal'); }
 			
 		
 	}
