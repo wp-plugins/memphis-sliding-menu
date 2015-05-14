@@ -91,16 +91,26 @@ class mslide_init_widget extends WP_Widget {
 	
 }
 function mslide_script() {
-	wp_enqueue_style( 'memphis-sliding-menu-style', plugins_url().'/memphis-sliding-menu/mslide-css.php' );
+	wp_enqueue_style( 'msm-style', plugins_url().'/memphis-sliding-menu/mslide.css' );
 	wp_enqueue_script( 'memphis-sliding-menu-script', plugins_url().'/memphis-sliding-menu/memphis-sliding-menu.js');
+	msm_inline_css('msm-style');
+}
+function msm_inline_css($style_name) {
+	$set_inline_style = msm_get_inline_css();
+	wp_add_inline_style( $style_name, $set_inline_style );
 }
 function mslide_admin_script() {
 	//LOAD MEMPHIS SLIDING MENU SCRIPTS
-	wp_enqueue_style( 'memphis-sliding-menu-style', plugins_url().'/memphis-sliding-menu/mslide-admin-css.php' );
+	wp_enqueue_style( 'msm-admin-style', plugins_url().'/memphis-sliding-menu/mslide-admin.css' );
 	wp_enqueue_script( 'memphis-sliding-menu-script', plugins_url().'/memphis-sliding-menu/memphis-sliding-menu.js');
 	//WORDPRESS IRIS COLOR PICKER
 	wp_enqueue_style( 'wp-color-picker' );
     wp_enqueue_script( 'mdocs-color-picker', plugins_url('memphis-sliding-menu.js', __FILE__ ), array( 'wp-color-picker' ), false, true );
+	msm_inline_admin_css('msm-admin-style');
+}
+function msm_inline_admin_css($style_name) {
+	$set_inline_style = msm_get_admin_inline_css();
+	wp_add_inline_style( $style_name, $set_inline_style );
 }
 function mslide_admin_document_ready() {
 ?>

@@ -5,8 +5,8 @@ Tags: plugin,documents,memphis,bhaldie,wordpress,library,repository,files,versio
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.5
-Tested up to: 4.0
-Stable tag: 1.0.7
+Tested up to: 4.2.2
+Stable tag: 1.1
 
 A sliding menu widget for all your  WordPress pages. 
 
@@ -33,6 +33,8 @@ Once uploaded the configuration menu is located in either the "Memphis" menu wit
 3. screenshot-3.png
 
 == Changelog ==
+= 1.1 =
+* *Update* - Changed to an inline style sheet.
 = 1.0.7 =
 * *Update* - Changed the main header to square corners.
 = 1.0.6 =
