@@ -1,59 +1,55 @@
 <?php
-header('Content-type: text/css');
-$raw_path = dirname(__FILE__);
-$explode_path = explode('/wp-content/', $raw_path);
-$doc_root = $explode_path[0];
-require_once( $doc_root.'/wp-load.php' );
-
-// SETTINGS
-// header
-$head_bg_color = get_option('mslide-header-bg-color');
-$head_bg_hover_color = get_option('mslide-header-bg-hover-color');
-$head_text_color =get_option('mslide-header-text-color');
-$head_text_hover_color = get_option('mslide-header-text-hover-color');
-$head_glow_color = get_option('mslide-header-glow-color');
-$head_bold = get_option('mslide-header-bold');
-$head_italic = get_option('mslide-header-italic');
-$head_strike = get_option('mslide-header-strike');
-$head_glow = get_option('mslide-header-glow');
-$head_text_glow_radius = get_option('mslide-header-text-glow-radius');
-$head_bg_glow = get_option('mslide-header-bg-glow');
-$head_bg_hover_glow = get_option('mslide-header-bg-hover-glow');
-$head_bg_glow_radius = get_option('mslide-header-bg-glow-radius');
-$head_bg_glow_color = get_option('mslide-header-bg-glow-color');
-// body
-$body_bg_color = get_option('mslide-body-bg-color');
-$body_bg_hover_color = get_option('mslide-body-bg-hover-color');
-$body_text_color =get_option('mslide-body-text-color');
-$body_text_hover_color = get_option('mslide-body-text-hover-color');
-$body_glow_color = get_option('mslide-body-glow-color');
-$body_bold = get_option('mslide-body-bold');
-$body_italic = get_option('mslide-body-italic');
-$body_strike = get_option('mslide-body-strike');
-$body_glow = get_option('mslide-body-glow');
-$body_text_glow_radius = get_option('mslide-body-text-glow-radius');
-$body_bg_glow = get_option('mslide-body-bg-glow');
-$body_bg_hover_glow = get_option('mslide-body-bg-hover-glow');
-$body_bg_glow_radius = get_option('mslide-body-bg-glow-radius');
-// border
-$border_outter_color = get_option('mslide-outter-border-color');
-$border_inner_color = get_option('mslide-inner-border-color');
-// font style
-$header_font_size = get_option('mslide-header-font-size');
-$body_font_size = get_option('mslide-body-font-size');
-$font_family = str_replace('-',' ',get_option('mslide-font-family'));
-// padding
-$header_padding_tb = get_option('mslide-header-padding-tb');
-$header_padding_lr = get_option('mslide-header-padding-lr');
-$body_padding_tb = get_option('mslide-body-padding-tb');
-$body_padding_lr = get_option('mslide-body-padding-lr');
+function msm_get_inline_css() {
+	// SETTINGS
+	ob_start();
+	$head_bg_color = get_option('mslide-header-bg-color');
+	$head_bg_hover_color = get_option('mslide-header-bg-hover-color');
+	$head_text_color =get_option('mslide-header-text-color');
+	$head_text_hover_color = get_option('mslide-header-text-hover-color');
+	$head_glow_color = get_option('mslide-header-glow-color');
+	$head_bold = get_option('mslide-header-bold');
+	$head_italic = get_option('mslide-header-italic');
+	$head_strike = get_option('mslide-header-strike');
+	$head_glow = get_option('mslide-header-glow');
+	$head_text_glow_radius = get_option('mslide-header-text-glow-radius');
+	$head_bg_glow = get_option('mslide-header-bg-glow');
+	$head_bg_hover_glow = get_option('mslide-header-bg-hover-glow');
+	$head_bg_glow_radius = get_option('mslide-header-bg-glow-radius');
+	$head_bg_glow_color = get_option('mslide-header-bg-glow-color');
+	// body
+	$body_bg_color = get_option('mslide-body-bg-color');
+	$body_bg_hover_color = get_option('mslide-body-bg-hover-color');
+	$body_text_color =get_option('mslide-body-text-color');
+	$body_text_hover_color = get_option('mslide-body-text-hover-color');
+	$body_glow_color = get_option('mslide-body-glow-color');
+	$body_bold = get_option('mslide-body-bold');
+	$body_italic = get_option('mslide-body-italic');
+	$body_strike = get_option('mslide-body-strike');
+	$body_glow = get_option('mslide-body-glow');
+	$body_text_glow_radius = get_option('mslide-body-text-glow-radius');
+	$body_bg_glow = get_option('mslide-body-bg-glow');
+	$body_bg_hover_glow = get_option('mslide-body-bg-hover-glow');
+	$body_bg_glow_radius = get_option('mslide-body-bg-glow-radius');
+	// border
+	$border_outter_color = get_option('mslide-outter-border-color');
+	$border_inner_color = get_option('mslide-inner-border-color');
+	// font style
+	$header_font_size = get_option('mslide-header-font-size');
+	$body_font_size = get_option('mslide-body-font-size');
+	$font_family = str_replace('-',' ',get_option('mslide-font-family'));
+	// padding
+	$header_padding_tb = get_option('mslide-header-padding-tb');
+	$header_padding_lr = get_option('mslide-header-padding-lr');
+	$body_padding_tb = get_option('mslide-body-padding-tb');
+	$body_padding_lr = get_option('mslide-body-padding-lr');
 ?>
+
 #memphis-sliding-menu, .memphis-sliding-menu ul, .memphis-sliding-menu li, .memphis-sliding-menu a {
 	margin: 0 !important;
 	padding: 0 !important;
 	border: none;
 	list-style: none;
-	text-decoration: none;
+	text-decoration: none !important;
 	position: relative;
 	<?php if($font_family != 'theme') { ?>
 	font-family: "<?php echo $font_family; ?>", Helvetica,sans-serif !important;
@@ -96,9 +92,9 @@ li.has-sub > a div, li.has-sub.active > a div {
 	position: absolute !important;
 	right: 2% !important;
 	top: 20% !important;
-	background: url(assets/imgs/icon_plus.png) 96% center no-repeat !important;
+	background: url(<?php echo plugins_url(); ?>/memphis-sliding-menu/assets/imgs/icon_plus.png) 96% center no-repeat !important;
 }
-li.has-sub.active > a div { background: url(assets/imgs/icon_minus.png) 96% center no-repeat !important; }
+li.has-sub.active > a div { background: url(<?php echo plugins_url(); ?>/memphis-sliding-menu/assets/imgs/icon_minus.png) 96% center no-repeat !important; }
 
 /* Sub menu Core Style */
 .memphis-sliding-menu ul ul {
@@ -205,3 +201,7 @@ li.has-sub.active > a div { background: url(assets/imgs/icon_minus.png) 96% cent
 .mslide-select { font-size: 0.8em; height: auto !important; }
 .mslide-setting-form label { vertical-align: top; font-size: 0.8em; }
 .mslide-setting-form h4 { color: #0074a2; padding: 0; margin: 8px 0; border-bottom: dashed 1px #dbdbdb;}
+<?php
+	$msm_style = ob_get_clean();
+	return $msm_style;
+}

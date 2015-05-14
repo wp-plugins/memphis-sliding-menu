@@ -5,11 +5,11 @@ Plugin Name: Memphis Sliding Menu
 Plugin URI: http://
 Description: A sliding menu for WordPress
 Author: Ian Howatson
-Version: 1.0.6
+Version: 1.1
 Author URI: http://www.kingofnothing.net/
-Date: 4/23/2013
+Date: 5/14/2015
 
-Copyright 2013 Ian Howatson  (email : ian.howatson@kingofnothing.net)
+Copyright 2015 Ian Howatson  (email : ian.howatson@kingofnothing.net)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License, version 2, as 
@@ -28,6 +28,8 @@ include 'mslide-settings.php';
 include 'mslide-functions.php';
 include 'mslide-shortcode.php';
 include 'mslide-dashboard.php';
+include 'mslide-inline-css.php';
+include 'mslide-inline-admin-css.php';
 add_action( 'widgets_init', 'mslide_widget' );
 add_action( 'wp_enqueue_scripts', 'mslide_script' );
 add_action( 'admin_enqueue_scripts', 'mslide_admin_script' );
